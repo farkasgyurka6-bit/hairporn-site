@@ -21,26 +21,22 @@
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* Hero szekció animációval */
+        /* Hero szekció */
         header {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
                         url('https://unsplash.com');
             background-size: cover;
             background-position: center;
             text-align: center;
-            animation: fadeIn 1.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            padding: 0 20px;
         }
 
         h1 {
@@ -57,15 +53,16 @@
         }
 
         .hero-sub {
-            font-size: 1.2rem;
-            letter-spacing: 8px;
+            font-size: 1.1rem;
+            letter-spacing: clamp(4px, 2vw, 8px);
             color: var(--text-dim);
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
-        /* Zsivány Gomb */
+        /* Gomb effekt */
         .btn-glow {
-            padding: 20px 50px;
+            display: inline-block;
+            padding: 20px 45px;
             background: var(--accent);
             color: white;
             text-decoration: none;
@@ -75,100 +72,102 @@
             letter-spacing: 2px;
             transition: all 0.4s;
             box-shadow: 0 0 20px var(--accent-glow);
+            margin-top: 20px;
         }
 
         .btn-glow:hover {
-            transform: scale(1.05) translateY(-5px);
+            transform: translateY(-5px);
             box-shadow: 0 0 40px var(--accent);
             background: #fff;
             color: #000;
         }
 
         .section {
-            padding: 100px 20px;
+            padding: 80px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        /* Galéria modern rács */
+        /* Galéria */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
+            gap: 20px;
         }
 
         .gallery-item {
-            height: 400px;
+            height: 450px;
             background-size: cover;
             background-position: center;
-            border-radius: 8px;
-            filter: grayscale(100%) brightness(0.7);
-            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-            cursor: pointer;
+            border-radius: 12px;
+            filter: grayscale(30%) brightness(0.8);
+            transition: all 0.5s ease;
+            border: 1px solid #222;
         }
 
         .gallery-item:hover {
-            filter: grayscale(0%) brightness(1);
+            filter: grayscale(0%) brightness(1.1);
             transform: scale(1.02);
+            border-color: var(--accent);
         }
 
-        /* Árlista kártyák */
+        /* Árlista */
         .price-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            gap: 25px;
         }
 
         .price-card {
             background: var(--surface);
-            padding: 40px;
-            border-radius: 12px;
-            border: 1px solid #222;
-            transition: 0.4s;
+            padding: 35px;
+            border-radius: 15px;
+            border: 1px solid #1a1a1a;
+            transition: 0.3s;
         }
 
         .price-card:hover {
             border-color: var(--accent);
-            transform: translateY(-10px);
+            background: #181818;
         }
 
         .price-row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #222;
-            padding-bottom: 10px;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #252525;
+            padding-bottom: 8px;
         }
 
-        .price-name { font-weight: 500; }
         .price-val { color: var(--accent); font-weight: 700; }
 
-        /* Térkép */
-        .map {
+        /* Térkép Fix */
+        .map-wrapper {
             width: 100%;
-            height: 450px;
-            border-radius: 20px;
-            filter: invert(90%) hue-rotate(180deg); /* Dark mode térkép effekt */
-            border: none;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #222;
         }
 
         footer {
             text-align: center;
-            padding: 50px;
+            padding: 60px 20px;
+            border-top: 1px solid #1a1a1a;
             color: var(--text-dim);
-            font-size: 0.9rem;
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 4rem; }
-            .section { padding: 60px 20px; }
+            h1 { font-size: 3.5rem; }
+            .gallery-item { height: 350px; }
         }
     </style>
 </head>
@@ -177,13 +176,14 @@
     <header>
         <p class="hero-sub">WELCOME TO THE ART OF</p>
         <h1>#hair<span class="highlight">porn</span></h1>
-        <p style="margin-bottom: 40px; color: #fff;">BY VERES KINGA</p>
-        <a href="#booking" class="btn-glow">Időpontot kérek</a>
+        <p style="font-size: 1.2rem; color: #fff; margin-top: 10px;">Veres Kinga Hair Stylist</p>
+        <a href="#booking" class="btn-glow">Időpontfoglalás</a>
     </header>
 
     <section class="section">
-        <h2>Style <span class="highlight">Inspiration</span></h2>
+        <h2>Inspiráció & <span class="highlight">Stílus</span></h2>
         <div class="gallery">
+            <!-- Illusztrációk: Balayage, Vágás, Szőke technika, Styling -->
             <div class="gallery-item" style="background-image: url('https://unsplash.com');"></div>
             <div class="gallery-item" style="background-image: url('https://unsplash.com');"></div>
             <div class="gallery-item" style="background-image: url('https://unsplash.com');"></div>
@@ -191,34 +191,36 @@
     </section>
 
     <section class="section" id="booking">
-        <h2>Menu & <span class="highlight">Prices</span></h2>
+        <h2>Szolgáltatások & <span class="highlight">Árak</span></h2>
         <div class="price-container">
             <div class="price-card">
-                <h3 style="color: var(--accent)">CUT & STYLE</h3>
-                <div class="price-row"><span class="price-name">Női vágás</span> <span class="price-val">12.500 Ft-tól</span></div>
-                <div class="price-row"><span class="price-name">Férfi vágás</span> <span class="price-val">6.500 Ft-tól</span></div>
-                <div class="price-row"><span class="price-name">Styling</span> <span class="price-val">8.000 Ft-tól</span></div>
+                <h3 style="color: var(--accent); margin-bottom: 25px;">VÁGÁS & STYLING</h3>
+                <div class="price-row"><span>Női vágás</span> <span class="price-val">12.500 Ft-tól</span></div>
+                <div class="price-row"><span>Férfi vágás</span> <span class="price-val">6.500 Ft-tól</span></div>
+                <div class="price-row"><span>Mosás & Szárítás</span> <span class="price-val">8.000 Ft-tól</span></div>
             </div>
             <div class="price-card">
-                <h3 style="color: var(--accent)">COLOR ART</h3>
-                <div class="price-row"><span class="price-name">Balayage</span> <span class="price-val">28.000 Ft-tól</span></div>
-                <div class="price-row"><span class="price-name">Teljes festés</span> <span class="price-val">18.500 Ft-tól</span></div>
-                <div class="price-row"><span class="price-name">Szőkítés</span> <span class="price-val">22.000 Ft-tól</span></div>
+                <h3 style="color: var(--accent); margin-bottom: 25px;">FESTÉS & TECHNIKA</h3>
+                <div class="price-row"><span>Balayage / Ombre</span> <span class="price-val">28.000 Ft-tól</span></div>
+                <div class="price-row"><span>Teljes festés</span> <span class="price-val">18.500 Ft-tól</span></div>
+                <div class="price-row"><span>Tőfestés</span> <span class="price-val">14.000 Ft-tól</span></div>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 50px;">
-             <a href="https://bwnet.hu" target="_blank" class="btn-glow">Foglalás BWNET-en</a>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="https://bwnet.hu" target="_blank" class="btn-glow">Foglalás a BWNET-en</a>
         </div>
     </section>
 
     <section class="section">
-        <h2>Location</h2>
-        <p style="text-align: center; color: var(--text-dim); margin-bottom: 30px;">1066 Budapest, Zichy Jenő utca</p>
-        <iframe class="map" src="https://google.com"></iframe>
+        <h2>Megközelítés</h2>
+        <p style="text-align: center; margin-bottom: 25px;">1066 Budapest, Zichy Jenő utca</p>
+        <div class="map-wrapper">
+            <iframe width="100%" height="100%" frameborder="0" src="https://google.com" allowfullscreen="" loading="lazy"></iframe>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 #hairporn by Veres Kinga. All rights reserved.</p>
+        <p>&copy; 2024 #hairporn by Veres Kinga. Minden jog fenntartva.</p>
     </footer>
 
 </body>
