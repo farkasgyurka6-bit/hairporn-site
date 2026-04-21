@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#hairporn | Veres Kinga</title>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #000000;
-            --secondary: #ff0055; /* Neonos beütés az Insta-feelinghez */
+            --secondary: #ff0055;
             --bg-light: #ffffff;
             --bg-soft: #f4f4f4;
             --text-gray: #666;
@@ -26,8 +26,9 @@
         /* Hero - Dinamikus és ütős */
         header {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('https://unsplash.com');
+            /* JAVÍTVA: Működő háttérkép link */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -52,18 +53,19 @@
             letter-spacing: 2px;
             transition: 0.3s;
             border: 2px solid white;
+            cursor: pointer;
         }
 
         .cta-btn:hover { background: transparent; color: white; }
 
         /* Szekciók */
-        section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
+        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
         .section-title { font-size: 2.5rem; font-weight: 900; text-align: center; margin-bottom: 60px; text-transform: uppercase; }
 
-        /* Galéria - Insta stílusban */
+        /* Galéria */
         .insta-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 15px;
         }
 
@@ -74,11 +76,12 @@
             transition: 0.4s;
             cursor: pointer;
             filter: brightness(0.9);
+            background-color: #eee;
         }
 
         .insta-item:hover { filter: brightness(1.1); transform: scale(1.02); }
 
-        /* Árlista - Letisztult luxus */
+        /* Árlista */
         .price-wrapper { background: var(--bg-soft); padding: 80px 0; width: 100%; }
         .price-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 50px; padding: 0 20px; }
         
@@ -86,15 +89,16 @@
         .price-line { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #ddd; }
         .price-line span:last-child { font-weight: 700; color: var(--secondary); }
 
-        /* Térkép */
-        .map-section { width: 100%; height: 500px; border: none; margin-top: 50px; filter: grayscale(1); transition: 0.5s; }
+        /* Térkép JAVÍTVA */
+        .map-section { width: 100%; height: 450px; border: none; margin-top: 30px; filter: grayscale(1); transition: 0.5s; }
         .map-section:hover { filter: grayscale(0); }
 
-        footer { padding: 60px; text-align: center; background: #000; color: white; letter-spacing: 3px; font-size: 0.8rem; }
+        footer { padding: 40px; text-align: center; background: #000; color: white; letter-spacing: 2px; font-size: 0.7rem; }
 
         @media (max-width: 768px) {
-            h1 { font-size: 4rem; }
-            section { padding: 60px 20px; }
+            h1 { font-size: 3.5rem; }
+            section { padding: 40px 20px; }
+            .cta-btn { padding: 15px 30px; font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -103,21 +107,21 @@
     <header>
         <h1>#hairporn</h1>
         <p class="tagline">by Veres Kinga</p>
-        <a href="#prices" class="cta-btn">Időpontfoglalás</a>
+        <a href="#prices" class="cta-btn">Kezdjük el</a>
     </header>
 
     <section id="gallery">
         <h2 class="section-title">Inspiráció</h2>
         <div class="insta-gallery">
-            <div class="insta-item" style="background-image: url('https://unsplash.com');"></div>
-            <div class="insta-item" style="background-image: url('https://unsplash.com');"></div>
-            <div class="insta-item" style="background-image: url('https://unsplash.com');"></div>
-            <div class="insta-item" style="background-image: url('https://unsplash.com');"></div>
+            <div class="insta-item" style="background-image: url('https://images.unsplash.com/photo-1560869713-7d0a29430803?q=80&w=500&auto=format&fit=crop');"></div>
+            <div class="insta-item" style="background-image: url('https://images.unsplash.com/photo-1620331311520-246422fd82f9?q=80&w=500&auto=format&fit=crop');"></div>
+            <div class="insta-item" style="background-image: url('https://images.unsplash.com/photo-1519735817352-ad92662ec8b6?q=80&w=500&auto=format&fit=crop');"></div>
+            <div class="insta-item" style="background-image: url('https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?q=80&w=500&auto=format&fit=crop');"></div>
         </div>
     </section>
 
-    <div class="price-wrapper">
-        <div class="price-inner" id="prices">
+    <div class="price-wrapper" id="prices">
+        <div class="price-inner">
             <div class="price-cat">
                 <h3>VÁGÁS</h3>
                 <div class="price-line"><span>Női vágás</span><span>12.500 Ft-tól</span></div>
@@ -132,18 +136,18 @@
             </div>
         </div>
         <div style="text-align: center; margin-top: 50px;">
-            <a href="https://bwnet.hu" target="_blank" class="cta-btn" style="background: black; color: white;">Foglalás online</a>
+            <a href="https://bwnet.hu" target="_blank" class="cta-btn" style="background: black; color: white; border-color: black;">Foglalás online</a>
         </div>
     </div>
 
-    <section>
+    <section id="contact">
         <h2 class="section-title">Hol találsz meg?</h2>
-        <p style="text-align: center; font-size: 1.2rem; margin-bottom: 30px;">1066 Budapest, Zichy Jenő utca 11.</p>
-        <iframe class="map-section" src="https://google.com"></iframe>
+        <p style="text-align: center; font-size: 1.1rem; margin-bottom: 30px; font-weight: 300;">1066 Budapest, Zichy Jenő utca 11.</p>
+        <iframe class="map-section" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d2695.5348!2d19.056!3d47.50!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc6be2222221%3A0x2222222222222222!2zWmljaHkgSmVuX8WRIHUuIDExLCBCdWRhcGVzdCwgMTA2Ng!5e0!3m2!1shu!2shu!4v1710000000000"></iframe>
     </section>
 
     <footer>
-        <p>#HAIRPORN &copy; 2024 | VERES KINGA | ALL RIGHTS RESERVED</p>
+        <p>#HAIRPORN &copy; 2026 | VERES KINGA | ALL RIGHTS RESERVED</p>
     </footer>
 
 </body>
