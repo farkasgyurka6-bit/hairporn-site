@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eb-Fazont | Prémium Kutyakozmetika & Spa Zugló</title>
-    
+    <title>Eb-Fazont | Prémium Kutyakozmetika</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     
     <style>
@@ -15,18 +14,16 @@
             --white: #ffffff;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
         body {
+            margin: 0;
             font-family: 'Montserrat', sans-serif;
             background-color: var(--soft-cream);
-            color: var(--dark);
             overflow-x: hidden;
         }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO --- */
         header {
-            height: 100vh;
+            height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -34,220 +31,144 @@
                         url('https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=2071&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Parallax hatás */
+            color: white;
             text-align: center;
-            color: var(--white);
         }
 
-        .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 10vw, 6rem);
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-        }
-
-        .btn-gold {
-            padding: 18px 40px;
-            background: var(--gold);
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-radius: 0;
-            transition: 0.4s ease;
-            display: inline-block;
-        }
-
-        .btn-gold:hover {
-            background: var(--white);
-            color: var(--dark);
-            transform: scale(1.05);
-        }
-
-        /* --- FILOZÓFIA / INTRO --- */
-        .intro {
+        /* --- GALÉRIA - ITT TÖRTÉNIK A VARÁZSLAT --- */
+        .gallery-container {
             padding: 100px 20px;
+            background: #000;
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
         }
 
-        .intro h2 {
+        .gallery-container h2 {
+            color: white;
             font-family: 'Playfair Display', serif;
+            margin-bottom: 50px;
             font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .intro p {
-            color: #666;
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-
-        /* --- SZOLGÁLTATÁSOK KÁRTYÁK --- */
-        .services {
-            padding-bottom: 100px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 40px;
-            text-align: center;
-            transition: 0.5s;
-            border-bottom: 4px solid transparent;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        .service-card:hover {
-            transform: translateY(-15px);
-            border-color: var(--gold);
-        }
-
-        .service-card i {
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .service-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        /* --- GALÉRIA --- */
-        .gallery {
-            background: var(--dark);
-            padding: 100px 0;
-            color: var(--white);
-            text-align: center;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
+        /* Alaphelyzet: Fekete-fehér és picit homályos */
         .gallery-item {
             aspect-ratio: 1/1;
             background-size: cover;
             background-position: center;
-            filter: grayscale(100%);
-            transition: 0.6s;
+            filter: grayscale(100%) brightness(0.7);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 8px;
+            cursor: pointer;
         }
 
-        .gallery-item:hover {
-            filter: grayscale(0%);
-            transform: scale(1.1);
-            z-index: 10;
+        /* SZÁMÍTÓGÉPES FÓKUSZ EFFEKT (Desktop) */
+        @media (min-width: 1025px) {
+            /* Ha a szülőre (grid) ráviszed az egeret, minden elem homályosabb lesz */
+            .gallery-grid:hover .gallery-item {
+                filter: grayscale(100%) brightness(0.4) blur(2px);
+                transform: scale(0.95);
+            }
+
+            /* De amire konkrétan rámutatsz, az kiemelkedik */
+            .gallery-grid .gallery-item:hover {
+                filter: grayscale(0%) brightness(1.1) blur(0);
+                transform: scale(1.1);
+                z-index: 10;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            }
         }
 
-        /* --- CONTACT & MAP --- */
-        .contact {
-            padding: 100px 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        /* MOBIL AKTÍV ÁLLAPOT (JavaScript adja hozzá görgetéskor) */
+        .gallery-item.is-visible {
+            filter: grayscale(0%) brightness(1);
+        }
+
+        /* --- TÉRKÉP SZAKASZ --- */
+        .map-section {
+            padding: 80px 20px;
             max-width: 1200px;
             margin: 0 auto;
-            gap: 50px;
+            text-align: center;
         }
 
-        .map-box iframe {
+        .map-wrapper {
             width: 100%;
-            height: 400px;
-            border: 0;
+            height: 450px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
+
+        iframe { width: 100%; height: 100%; border: 0; }
 
         footer {
-            padding: 50px;
+            padding: 40px;
             background: var(--dark);
-            color: rgba(255,255,255,0.5);
+            color: white;
             text-align: center;
             font-size: 0.8rem;
-            letter-spacing: 2px;
-        }
-
-        @media (max-width: 768px) {
-            .contact { grid-template-columns: 1fr; }
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-            header { height: 70vh; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="hero-content">
-            <p>Üdvözöljük a nyugalom szigetén</p>
-            <h1>Eb-Fazont</h1>
-            <a href="#services" class="btn-gold">Szolgáltatások felfedezése</a>
+        <div>
+            <h1 style="font-family: 'Playfair Display', serif; font-size: 4rem;">Eb-Fazont</h1>
+            <p style="letter-spacing: 5px;">PRÉMIUM KUTYAKOZMETIKA</p>
         </div>
     </header>
 
-    <section class="intro">
-        <h2>Több mint kozmetika.</h2>
-        <p>Zugló szívében található szalonunkban minden négylábú vendégünk VIP kezelésben részesül. Nem csak nyírunk – szépítünk, ápolunk és gondoskodunk kutyája testi-lelki feltöltődéséről.</p>
-    </section>
-
-    <section class="services" id="services">
-        <div class="service-card">
-            <h3>Teljes Kozmetika</h3>
-            <p>Fürdetés, nyírás, karomvágás és fültisztítás prémium minőségű készítményekkel.</p>
-        </div>
-        <div class="service-card">
-            <h3>Bontás & Ápolás</h3>
-            <p>Csomósodott szőrzet kíméletes kibontása és tápláló olajos kezelések.</p>
-        </div>
-        <div class="service-card">
-            <h3>Kiskutya Suli</h3>
-            <p>Érzékenyítő kezelés kölyökkutyáknak, hogy a kozmetika élmény legyen, ne teher.</p>
-        </div>
-    </section>
-
-    <section class="gallery">
-        <h2>Boldog Vendégeink</h2>
+    <section class="gallery-container">
+        <h2>Pillanatok a szalonból</h2>
         <div class="gallery-grid">
-            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=500&auto=format&fit=crop');"></div>
-            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?q=80&w=500&auto=format&fit=crop');"></div>
-            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=500&auto=format&fit=crop');"></div>
-            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a?q=80&w=500&auto=format&fit=crop');"></div>
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=600');"></div>
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?q=80&w=600');"></div>
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=600');"></div>
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a?q=80&w=600');"></div>
         </div>
     </section>
 
-    <section class="contact">
-        <div class="info">
-            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px;">Látogasson el hozzánk</h2>
-            <p><strong>Cím:</strong> 1141 Budapest, Szugló u. 130.</p>
-            <p><strong>Bejelentkezés:</strong> +36 20 123 4567</p>
-            <p><strong>Nyitvatartás:</strong> H-P: 08:00 - 18:00</p>
-            <br>
-            <a href="tel:+36201234567" class="btn-gold">Hívás indítása</a>
-        </div>
-        <div class="map-box">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2693.425257960334!2d19.1176255!3d47.5204485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741db03a466185f%3A0x6b4c19451109a067!2zQnVkYXBlc3QsIFN6dWdsw7MgdS4gMTMwLCAxMTQx!5e0!3m2!1shu!2shu!4v1713745000000!5m2!1shu!2shu"></iframe>
+    <section class="map-section">
+        <h2>Hol találsz minket?</h2>
+        <div class="map-wrapper">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2694.062024765697!2d19.11470557688001!3d47.52763809340848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741db0374e2a865%3A0xc32a68846067756e!2sBudapest%2C%20Szugl%C3%B3%20u.%20130%2C%201141!5e0!3m2!1shu!2shu!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
     <footer>
-        <p>EB-FAZONT KUTYAKOZMETIKA & SPA | 2026 | ALL RIGHTS RESERVED</p>
+        <p>EB-FAZONT | 2026 | MINDEN JOG FENNTARTVA</p>
     </footer>
 
+    <script>
+        const observerOptions = {
+            root: null,
+            threshold: 0.6 // Akkor vált színesre, ha a kép 60%-a látszik
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Késleltetett színesedés a szép átmenetért
+                    setTimeout(() => {
+                        entry.target.classList.add('is-visible');
+                    }, 200); 
+                } else {
+                    entry.target.classList.remove('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
 </body>
 </html>
