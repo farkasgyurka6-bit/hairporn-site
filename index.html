@@ -3,160 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>#hairporn | Veres Kinga - Prémium Fodrászat Budapest</title>
+    <title>Eb-Fazont | Prémium Kutyakozmetika & Spa Zugló</title>
     
-    <meta name="description" content="Professzionális hajformázás, Balayage és vágás Budapest szívében. #hairporn by Veres Kinga.">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #000000;
-            --secondary: #ff0055;
+            --gold: #c5a059;
+            --dark: #1a1a1a;
+            --soft-cream: #f9f7f2;
             --white: #ffffff;
-            --gray: #f8f8f8;
         }
 
-        * { box-sizing: border-box; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            margin: 0;
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--white);
-            color: var(--primary);
+            background-color: var(--soft-cream);
+            color: var(--dark);
             overflow-x: hidden;
         }
 
-        /* Hero szekció */
+        /* --- HERO SECTION --- */
         header {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=2070&auto=format&fit=crop');
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=2071&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background-attachment: fixed; /* Parallax hatás */
             text-align: center;
             color: var(--white);
-            padding: 20px;
         }
 
-        h1 { font-size: clamp(3.5rem, 15vw, 8rem); font-weight: 900; margin: 0; letter-spacing: -3px; line-height: 0.9; }
-        .tagline { font-size: 1.2rem; letter-spacing: 8px; text-transform: uppercase; margin: 20px 0 40px; font-weight: 300; }
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-style: italic;
+            margin-bottom: 10px;
+        }
 
-        .cta-btn {
-            padding: 20px 50px;
-            background: var(--white);
-            color: var(--primary);
+        .hero-content p {
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .btn-gold {
+            padding: 18px 40px;
+            background: var(--gold);
+            color: var(--white);
             text-decoration: none;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
-            transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            border: 2px solid var(--white);
+            border-radius: 0;
+            transition: 0.4s ease;
+            display: inline-block;
         }
 
-        .cta-btn:hover { background: transparent; color: var(--white); transform: scale(1.05); }
+        .btn-gold:hover {
+            background: var(--white);
+            color: var(--dark);
+            transform: scale(1.05);
+        }
 
-        /* Szekciók alapstílusa */
-        section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
-        .section-title { font-size: 2.5rem; font-weight: 900; text-align: center; margin-bottom: 60px; text-transform: uppercase; letter-spacing: 2px; }
-        .section-title span { color: var(--secondary); }
+        /* --- FILOZÓFIA / INTRO --- */
+        .intro {
+            padding: 100px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-        /* Galéria */
+        .intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        /* --- SZOLGÁLTATÁSOK KÁRTYÁK --- */
+        .services {
+            padding-bottom: 100px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px;
+            text-align: center;
+            transition: 0.5s;
+            border-bottom: 4px solid transparent;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--gold);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* --- GALÉRIA --- */
+        .gallery {
+            background: var(--dark);
+            padding: 100px 0;
+            color: var(--white);
+            text-align: center;
+        }
+
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(4, 1fr);
+            margin-top: 50px;
         }
 
         .gallery-item {
             aspect-ratio: 1/1;
             background-size: cover;
             background-position: center;
-            transition: 0.5s;
-            filter: grayscale(20%);
-            border-radius: 4px;
+            filter: grayscale(100%);
+            transition: 0.6s;
         }
 
-        .gallery-item:hover { filter: grayscale(0); transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+        .gallery-item:hover {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+            z-index: 10;
+        }
 
-        /* Árlista - Modernizálva */
-        .price-section { background-color: var(--gray); width: 100%; padding: 100px 0; }
-        .price-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 60px; padding: 0 20px; }
-        
-        .price-cat h3 { font-size: 1.8rem; font-weight: 900; border-bottom: 3px solid var(--primary); padding-bottom: 10px; margin-bottom: 30px; }
-        .price-line { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #ddd; font-weight: 400; }
-        .price-line b { color: var(--secondary); font-weight: 700; }
+        /* --- CONTACT & MAP --- */
+        .contact {
+            padding: 100px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 50px;
+        }
 
-        /* Térkép - FIXÁLVA */
-        .map-container { width: 100%; height: 500px; margin-top: 50px; background: #eee; position: relative; }
-        .map-container iframe { width: 100%; height: 100%; border: 0; filter: grayscale(1) invert(0.9); }
-        .map-container iframe:hover { filter: none; transition: 0.5s; }
+        .map-box iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+        }
 
-        /* Footer */
-        footer { background: #000; color: #fff; padding: 60px 20px; text-align: center; }
-        footer p { margin: 5px 0; letter-spacing: 2px; font-weight: 300; opacity: 0.7; }
+        footer {
+            padding: 50px;
+            background: var(--dark);
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
 
         @media (max-width: 768px) {
-            h1 { font-size: 4rem; }
-            .section-title { font-size: 2rem; }
-            section { padding: 60px 20px; }
+            .contact { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            header { height: 70vh; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>#hair<span style="color:var(--secondary)">porn</span></h1>
-        <p class="tagline">by Veres Kinga</p>
-        <a href="#prices" class="cta-btn">Időpontot kérek</a>
+        <div class="hero-content">
+            <p>Üdvözöljük a nyugalom szigetén</p>
+            <h1>Eb-Fazont</h1>
+            <a href="#services" class="btn-gold">Szolgáltatások felfedezése</a>
+        </div>
     </header>
 
-    <section id="gallery">
-        <h2 class="section-title">Inspirá<span>ció</span></h2>
-        <div class="gallery-grid">
-            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1560869713-7d0a29430803?q=80&w=800&auto=format&fit=crop');"></div>
-            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1620331311520-246422fd82f9?q=80&w=800&auto=format&fit=crop');"></div>
-            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1519735817352-ad92662ec8b6?q=80&w=800&auto=format&fit=crop');"></div>
-            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?q=80&w=800&auto=format&fit=crop');"></div>
+    <section class="intro">
+        <h2>Több mint kozmetika.</h2>
+        <p>Zugló szívében található szalonunkban minden négylábú vendégünk VIP kezelésben részesül. Nem csak nyírunk – szépítünk, ápolunk és gondoskodunk kutyája testi-lelki feltöltődéséről.</p>
+    </section>
+
+    <section class="services" id="services">
+        <div class="service-card">
+            <h3>Teljes Kozmetika</h3>
+            <p>Fürdetés, nyírás, karomvágás és fültisztítás prémium minőségű készítményekkel.</p>
+        </div>
+        <div class="service-card">
+            <h3>Bontás & Ápolás</h3>
+            <p>Csomósodott szőrzet kíméletes kibontása és tápláló olajos kezelések.</p>
+        </div>
+        <div class="service-card">
+            <h3>Kiskutya Suli</h3>
+            <p>Érzékenyítő kezelés kölyökkutyáknak, hogy a kozmetika élmény legyen, ne teher.</p>
         </div>
     </section>
 
-    <div class="price-section" id="prices">
-        <div class="price-container">
-            <div class="price-cat">
-                <h3>VÁGÁS</h3>
-                <div class="price-line"><span>Női vágás</span> <b>12.500 Ft-tól</b></div>
-                <div class="price-line"><span>Férfi vágás</span> <b>6.500 Ft-tól</b></div>
-                <div class="price-line"><span>Egészségügyi vágás</span> <b>8.000 Ft-tól</b></div>
-            </div>
-            <div class="price-cat">
-                <h3>TECHNIKA</h3>
-                <div class="price-line"><span>Balayage</span> <b>28.000 Ft-tól</b></div>
-                <div class="price-line"><span>Teljes festés</span> <b>18.500 Ft-tól</b></div>
-                <div class="price-line"><span>Szőkítés</span> <b>22.000 Ft-tól</b></div>
-            </div>
+    <section class="gallery">
+        <h2>Boldog Vendégeink</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=500&auto=format&fit=crop');"></div>
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?q=80&w=500&auto=format&fit=crop');"></div>
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=500&auto=format&fit=crop');"></div>
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a?q=80&w=500&auto=format&fit=crop');"></div>
         </div>
-        <div style="text-align: center; margin-top: 60px;">
-            <a href="https://bwnet.hu" target="_blank" class="cta-btn" style="background: black; color: white;">Online foglalás (Bwnet)</a>
-        </div>
-    </div>
+    </section>
 
-    <section id="location">
-        <h2 class="section-title">Itt talál<span>sz</span> meg</h2>
-        <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px; font-weight: 300;">1066 Budapest, Zichy Jenő utca 11.</p>
-        
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2695.4214532292394!2d19.055811776857643!3d47.50119869527964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc68202b179f%3A0xe5a24285847e15f6!2sBudapest%2C%20Zichy%20Jen%C5%91%20u.%2011%2C%201066!5e0!3m2!1shu!2shu!4v1713745000000!5m2!1shu!2shu" allowfullscreen="" loading="lazy"></iframe>
+    <section class="contact">
+        <div class="info">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px;">Látogasson el hozzánk</h2>
+            <p><strong>Cím:</strong> 1141 Budapest, Szugló u. 130.</p>
+            <p><strong>Bejelentkezés:</strong> +36 20 123 4567</p>
+            <p><strong>Nyitvatartás:</strong> H-P: 08:00 - 18:00</p>
+            <br>
+            <a href="tel:+36201234567" class="btn-gold">Hívás indítása</a>
+        </div>
+        <div class="map-box">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2693.425257960334!2d19.1176255!3d47.5204485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741db03a466185f%3A0x6b4c19451109a067!2zQnVkYXBlc3QsIFN6dWdsw7MgdS4gMTMwLCAxMTQx!5e0!3m2!1shu!2shu!4v1713745000000!5m2!1shu!2shu"></iframe>
         </div>
     </section>
 
     <footer>
-        <p>#HAIRPORN &copy; 2026</p>
-        <p>VERES KINGA | BUDAPEST</p>
-        <p style="font-size: 0.6rem; margin-top: 20px; opacity: 0.4;">DESIGNED BY AI | ALL RIGHTS RESERVED</p>
+        <p>EB-FAZONT KUTYAKOZMETIKA & SPA | 2026 | ALL RIGHTS RESERVED</p>
     </footer>
 
 </body>
